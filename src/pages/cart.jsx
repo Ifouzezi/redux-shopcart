@@ -11,38 +11,41 @@ export default function Cart() {
     setTotalCart(cart.reduce((acc, curr) => acc + curr.price, 0));
   }, [cart]);
 
-  console.log(cart, totalCart);
-
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-col md:flex-row justify-center items-start min-h-screen p-5">
       {cart && cart.length ? (
         <>
-          <div className="min-h-[80vh] grid md:grid-cols-2 max-w-6xl mx-auto">
-            <div className="flex flex-col justify-center items-center p-3">
+          {/* Cart Items Section */}
+          <div className="w-full md:w-2/3 p-5">
+            <h1 className="text-2xl font-bold text-gray-900 mb-5">Shopping Cart</h1>
+            <div className="space-y-4">
               {cart.map((cartItem) => (
                 <CartTile key={cartItem.id} cartItem={cartItem} />
               ))}
             </div>
           </div>
-          <div className="w-[300px]">
-            <div className="flex flex-col justify-center items-end p-5 space-y-5 mt-14">
-              <h1 className="font-bold text-lg text-red-800">Your Cart Summary</h1>
-              <p>
-                <span className="text-gray-800 font-bold">Total Items</span>
-                <span>: {cart.length}</span>
+
+          {/* Cart Summary Section */}
+          <div className="w-full md:w-1/3 p-5">
+            <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200">
+              <h2 className="text-xl font-semibold text-red-800 mb-3">Your Cart Summary</h2>
+              <p className="text-lg text-gray-700">
+                <span className="font-bold">Total Items:</span> {cart.length}
               </p>
-              <p>
-                <span className="text-gray-800 font-bold">Total Amount</span>
-                <span>: {totalCart}</span>
+              <p className="text-lg text-gray-700">
+                <span className="font-bold">Total Amount:</span> ${totalCart.toFixed(2)}
               </p>
+              <button className="w-full mt-5 bg-red-600 text-white py-2 px-4 rounded-md text-lg font-semibold hover:bg-red-700 transition duration-300">
+                Proceed to Checkout
+              </button>
             </div>
           </div>
         </>
       ) : (
-        <div className="min-h-[80vh] flex flex-col items-center justify-center">
-          <h1 className="text-gray-800 font-bold text-xl mb-2">Your cart is empty</h1>
+        <div className="flex flex-col items-center justify-center w-full min-h-screen">
+          <h1 className="text-gray-800 font-bold text-2xl mb-2">Your cart is empty</h1>
           <Link to="/">
-            <button className="bg-red-950 text-white border-2 rounded-lg font-bold p-4 duration-300 hover:bg-red-700">
+            <button className="bg-red-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition duration-300">
               SHOP NOW
             </button>
           </Link>

@@ -9,7 +9,7 @@ export default function CartTile({ cartItem }) {
 
   return (
     <>
-      <div className="flex items-center p-5 justify-between bg-red-500 mt-2 mb-2 rounded-xl">
+      <div className="flex items-center p-5 justify-between border-2 border-red-500 mt-2 mb-2 rounded-xl">
         <div className="flex p-3">
           <img
             src={cartItem?.image}
@@ -18,7 +18,7 @@ export default function CartTile({ cartItem }) {
           />
           <div className="ml-10 self-start space-y-5">
             <h1 className="text-xl text-white font-bold">{cartItem?.tile}</h1>
-            <p className="text-white font-extrabold">{cartItem?.price}</p>
+            <p className="text-gray-700 font-bold text-lg">${cartItem?.price}</p>
           </div>
         </div>
         <div>
