@@ -27,13 +27,20 @@ const Home = () => {
         <div>
             {loading ? (
                 <div className="min-h-screen w-full flex justify-center items-center">
-                    <Circles height={120} width={120} color="rgb(127,29,29)" visible={true} />
+                    <Circles
+                        height={120}
+                        width={120}
+                        color="rgb(127,29,29)"
+                        visible={true} />
                 </div>
             ) : (
                 <div className="min-h-[80vh] grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-6xl mx-auto p-3">
                     {products.length > 0 ? products.map((product) => (
-                        <ProductTile key={product.id} product={product} />
-                    )) : null} 
+                        <ProductTile
+                            key={product.id}
+                            product={product}
+                        />
+                    )) : null}
                 </div>
             )}
         </div>

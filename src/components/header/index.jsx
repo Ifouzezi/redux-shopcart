@@ -10,12 +10,12 @@ const Header = () => {
             </Link>
             <ul className="flex items-center space-x-6 text-gray-800 font-semibold">
                 <li>
-                    <Link to={'/'} className="cursor-pointer hover:text-red-600">
+                    <Link to={'/'} className="cursor-pointer duration-300 hover:text-red-700">
                         Home
                     </Link>
                 </li>
                 <li>
-                    <Link to={'/cart'} className="cursor-pointer hover:text-red-600">
+                    <Link to={'/cart'} className="cursor-pointer duration-300 hover:text-red-700">
                         Cart
                     </Link>
                 </li>
